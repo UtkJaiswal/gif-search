@@ -1,7 +1,6 @@
 import {app} from "./firebaseConfig"
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-// import { auth } from "./firebaseConfig";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -12,17 +11,10 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [email2, setEmail2] = useState("");
   const [password2, setPassword2] = useState("");
-    // console.log("CHeck",useNavigate)
   const navigate = useNavigate();
   const auth=getAuth();
 
-    // const check= (e)=>{
-    //     e.preventDefault();
-    //     // const history = useHistory();
-        
-    //     // console.log("fjfjf")
-    //     navigate("/gif-search");
-    // }
+    
 
 
   const handleLoginSubmit = async (event) => {
@@ -31,11 +23,7 @@ function LoginForm() {
     try {
       await signInWithEmailAndPassword(auth,email, password);
       console.log("User logged in");
-    //   const history = useNavigate();
-    // eslint-disable-next-line 
-    //   const navigate = useNavigate();
       navigate('/gif-search');
-    //   history.push("/gif-search");
     } catch (error) {
       console.error(error);
     }
@@ -43,7 +31,6 @@ function LoginForm() {
 
   const handleSignUpSubmit = async (event) => {
     event.preventDefault();
-    // const auth2 = getAuth();
     try {
       await createUserWithEmailAndPassword(auth,email2, password2);
       console.log("User signed up");
