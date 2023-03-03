@@ -7,10 +7,10 @@ function App() {
       
       <Routes>
         <Route path="/login" element={<LoginForm/>}>
-          {/* <LoginForm /> */}
+      
         </Route>
         <Route path="/gif-search" element={<GifSearch/>}>
-          {/* <GifSearch /> */}
+        
         </Route>
         
       </Routes>

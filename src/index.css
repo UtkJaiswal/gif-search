@@ -3,10 +3,6 @@
   padding:0px;
   box-sizing:border-box;
 }
-/* body {
-  background:#222;
-  font-family:"Raleway",sans-serif;
-} */
 
 body {
   background:#e9ecef;
@@ -18,9 +14,7 @@ body {
   display:flex;
   justify-content:center;
 }
-/* .header > div {
-  border:10px solid #aaa;
-} */
+
 
 .header > div {
   border:10px solid white;
@@ -55,4 +49,22 @@ body {
 }
 .result .list .item img {
   width:100%;
+}
+.loading {
+  display:flex;
+  justify-content:center;
+}
+.loading .loader {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  border:5px solid #fff;
+  border-top:5px solid #111;
+  transform:rotate(0deg);
+  animation:loading 500ms ease-in-out infinite;
+}
+@keyframes loading {
+  to {
+    transform:rotate(360deg);
+  }
 }

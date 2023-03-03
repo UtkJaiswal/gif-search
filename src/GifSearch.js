@@ -1,31 +1,32 @@
 import React, { useState } from "react";
+import { base_url, api_key } from './config';
 
 const GifSearch = () => {
 
     const [value,setValue]=useState("");
     const [gifs,setGifs]=useState([])
-
-    const onChange = (e)=>{
-        setValue(e.target.value)
-        // console.log("value-",value)
-    }
+    const [loader,setLoader] =useState(false)
+    
 
     const search=(e) =>{
         // console.log("fjfjf",value);
-        const url=`https://api.giphy.com/v1/gifs/search?api_key=GlVGYHkr3WSBnllca54iNt0yFbjz7L65&q=${value}`
+        const url=`${base_url}?api_key=${api_key}&q=${value}`
         if(url.length>0)
         {
+            setLoader(true)
             fetch(url)
             .then((res)=>{
                 return res.json()
             })
             .then((result)=>{
                 setGifs(result.data.map((gif)=>{
+                    setLoader(true)
                     return gif.images.fixed_height.url
                 }))
             })
             .catch(()=>{
                 console.log("Error occured")
+                setLoader(false);
             })
         }
     }
