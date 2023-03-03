@@ -1,12 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import LoginForm from './LoginForm';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginForm from "./LoginForm";
+import GifSearch from "./GifSearch";
 
 function App() {
   return (
-    <div className="App">
-      <LoginForm/>
-    </div>
+      
+      <Routes>
+        <Route path="/login" element={<LoginForm/>}>
+          {/* <LoginForm /> */}
+        </Route>
+        <Route path="/gif-search" element={<GifSearch/>}>
+          {/* <GifSearch /> */}
+        </Route>
+        
+      </Routes>
+    
   );
 }
 
