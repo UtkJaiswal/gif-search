@@ -25,7 +25,7 @@ const GifSearch = () => {
                 }))
             })
             .catch(()=>{
-                alert("Something went wrong")
+                console.log("Error occured")
             })
         }
     }
@@ -33,12 +33,7 @@ const GifSearch = () => {
     <div>
       <div className="header">
         <div>
-          <input 
-            type="text" 
-            placeholder="Search GIF"
-            value={value}
-            onChange={(e)=>setValue(e.target.value)} 
-          />
+          <input type="text" placeholder="Article Name or Keywords" value={value} onChange={(e)=>setValue(e.target.value)} />
           <button onClick={search}>
             Search
           </button>
@@ -54,9 +49,9 @@ const GifSearch = () => {
           ) : (
             <div className="list">
               {
-                gifs.map((gif)=>{
+                gifs.map((gif,index)=>{
                   return (
-                    <div className="item">
+                    <div className="item" key={index}>
                       <img src={gif}/>  
                     </div>
                   )
