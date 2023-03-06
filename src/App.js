@@ -6,7 +6,7 @@ function App() {
   return (
       
       <Routes>
-        <Route path="/login" element={<LoginForm/>}>
+        <Route path="/" element={<LoginForm/>}>
       
         </Route>
         <Route path="/gif-search" element={<GifSearch/>}>
